@@ -2,12 +2,12 @@ package id.andra.doqu_store.presentation.ui.activity.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import id.andra.doqu_store.R
 import id.andra.doqu_store.databinding.ActivityLoginBinding
+import id.andra.doqu_store.presentation.ui.activity.main.MainActivity
 import id.andra.doqu_store.presentation.ui.activity.signup.SignUpActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -28,6 +28,9 @@ class LoginActivity : AppCompatActivity() {
     private fun setEventListeners() {
         binding.textRedirectSignUp.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
+        }
+        binding.btnSubmit.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 

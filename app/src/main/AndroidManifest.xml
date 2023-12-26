@@ -27,6 +27,11 @@
             android:launchMode="singleTask"
             android:screenOrientation="nosensor" />
         <activity
+            android:name=".presentation.ui.activity.main.MainActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="nosensor" />
+        <activity
             android:name=".presentation.ui.activity.splash.SplashActivity"
             android:exported="true"
             android:launchMode="singleTask"

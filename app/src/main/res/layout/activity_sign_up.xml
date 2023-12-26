@@ -153,10 +153,10 @@
 
                 <ImageButton
                     android:id="@+id/btnTogglePassword"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:contentDescription="@string/img_desc"
-                    android:scaleType="fitCenter"
+                    android:padding="4dp"
                     android:src="@drawable/ic_eye" />
 
             </LinearLayout>
@@ -210,10 +210,10 @@
 
                 <ImageButton
                     android:id="@+id/btnTogglePasswordConfirm"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:contentDescription="@string/img_desc"
-                    android:scaleType="fitCenter"
+                    android:padding="4dp"
                     android:src="@drawable/ic_eye" />
 
             </LinearLayout>

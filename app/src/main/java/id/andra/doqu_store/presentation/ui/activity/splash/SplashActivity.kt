@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val duration = 5000L
+        val duration = 3000L
         val currentProgress = 100
         ObjectAnimator.ofInt(binding.loader, "progress", currentProgress)
             .setDuration(duration)

@@ -1,0 +1,75 @@
+<resources>
+
+    <style name="Theme.DoquStore" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- custom theme -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="fontFamily">@font/satoshi</item>
+        <item name="color">@color/neutral_90</item>
+        <item name="imageButtonStyle">@style/ImageButton</item>
+    </style>
+
+    <style name="TextHeadingS" parent="Theme.DoquStore">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/satoshi_bold</item>
+        <item name="lineHeight">30dp</item>
+    </style>
+
+    <style name="TextCaption" parent="Theme.DoquStore">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/satoshi</item>
+        <item name="lineHeight">15dp</item>
+    </style>
+
+    <style name="TextCaptionSMedium" parent="TextCaption">
+        <item name="fontFamily">@font/satoshi_medium</item>
+    </style>
+
+    <style name="TextBody2" parent="Theme.DoquStore">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/satoshi</item>
+        <item name="lineHeight">18dp</item>
+    </style>
+
+    <style name="TextBody2Medium" parent="TextBody2">
+        <item name="fontFamily">@font/satoshi_medium</item>
+    </style>
+
+    <style name="TextBody2Bold" parent="TextBody2">
+        <item name="fontFamily">@font/satoshi_bold</item>
+    </style>
+
+    <style name="TextRedirect" parent="TextBody2Bold">
+        <item name="android:textColor">@color/light_blue</item>
+    </style>
+
+    <style name="TextButtonL" parent="Theme.DoquStore">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@font/satoshi</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
+    <style name="TextButtonLBold" parent="TextButtonL">
+        <item name="fontFamily">@font/satoshi_bold</item>
+    </style>
+
+    <style name="Input" parent="TextBody2">
+        <item name="android:background">@drawable/input</item>
+    </style>
+
+    <style name="ImageButton">
+        <item name="android:background">@drawable/image_button</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="ButtonL" parent="TextButtonLBold">
+        <item name="textAllCaps">false</item>
+    </style>
+
+</resources>

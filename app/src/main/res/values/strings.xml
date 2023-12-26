@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Doqu Store</string>
+    <string name="img_desc">Image</string>
+    <string name="title_login">Login</string>
+    <string name="title_sign_up">Daftar Akun</string>
+    <string name="label_email">Email</string>
+    <string name="hint_email">Masukan alamat email</string>
+    <string name="label_username">Username</string>
+    <string name="hint_username">Masukan username anda</string>
+    <string name="label_password">Password</string>
+    <string name="hint_password">Masukan password anda</string>
+    <string name="label_password_confirm">Konfirmasi Password</string>
+    <string name="hint_password_confirm">Masukan ulang password anda</string>
+    <string name="redirect_login">Ke Halaman Login</string>
+    <string name="redirect_sign_up">Belum Punya Akun? Daftar Sekarang</string>
+</resources>

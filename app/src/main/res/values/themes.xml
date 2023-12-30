@@ -13,6 +13,7 @@
         <item name="fontFamily">@font/satoshi</item>
         <item name="color">@color/neutral_90</item>
         <item name="imageButtonStyle">@style/ImageButton</item>
+        <item name="cardViewStyle">@style/Card</item>
     </style>
 
     <style name="TextHeadingS" parent="Theme.DoquStore">
@@ -27,7 +28,7 @@
         <item name="lineHeight">15dp</item>
     </style>
 
-    <style name="TextCaptionSMedium" parent="TextCaption">
+    <style name="TextCaptionMedium" parent="TextCaption">
         <item name="fontFamily">@font/satoshi_medium</item>
     </style>
 
@@ -77,6 +78,25 @@
 
     <style name="Input" parent="TextBody2">
         <item name="android:background">@drawable/input</item>
+    </style>
+
+    <style name="Card">
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="TabLayout">
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabMode">fixed</item>
+        <item name="tabIndicatorColor">@color/primary_main</item>
+        <item name="tabSelectedTextColor">@color/primary_main</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
+        <item name="tabTextColor">@color/neutral_60</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextBody2Medium">
+        <item name="textAllCaps">false</item>
     </style>
 
     <style name="ImageButton">

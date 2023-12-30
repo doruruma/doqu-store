@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View" />
         <variable
             name="viewModel"
             type="id.andra.doqu_store.presentation.ui.activity.main.MainViewModel" />
@@ -56,17 +57,32 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainer"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="16dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@id/bottombar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/navbar"
+            app:navGraph="@navigation/nav_graph" />
+
         <LinearLayout
             android:id="@+id/bottombar"
             android:layout_width="0dp"
-            android:paddingTop="1dp"
             android:layout_height="@dimen/bottombarSize"
             android:background="@drawable/border_top"
+            android:baselineAligned="false"
             android:orientation="horizontal"
+            android:paddingTop="1dp"
+            android:visibility="@{viewModel.state.showBottomBar ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:baselineAligned="false">
+            app:layout_constraintStart_toStartOf="parent">
 
             <LinearLayout
                 android:id="@+id/btnHome"
@@ -87,11 +103,40 @@
                     android:src="@drawable/ic_home" />
 
                 <TextView
-                    style="@style/TextBody2Medium"
+                    style="@style/TextCaptionMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Home" />
+                    android:ellipsize="end"
+                    android:text="@string/home" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/btnAnnouncement"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ripple"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/img_desc"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_speaker" />
+
+                <TextView
+                    style="@style/TextCaptionMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:text="@string/announcement" />
 
             </LinearLayout>
 
@@ -114,11 +159,12 @@
                     android:src="@drawable/ic_receipt_item" />
 
                 <TextView
-                    style="@style/TextBody2Medium"
+                    style="@style/TextCaptionMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Riwayat" />
+                    android:ellipsize="end"
+                    android:text="@string/history" />
 
             </LinearLayout>
 
@@ -141,11 +187,12 @@
                     android:src="@drawable/ic_notification" />
 
                 <TextView
-                    style="@style/TextBody2Medium"
+                    style="@style/TextCaptionMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Notifikasi" />
+                    android:ellipsize="end"
+                    android:text="@string/notification" />
 
             </LinearLayout>
 
@@ -168,11 +215,12 @@
                     android:src="@drawable/ic_profile" />
 
                 <TextView
-                    style="@style/TextBody2Medium"
+                    style="@style/TextCaptionMedium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:text="Profile" />
+                    android:ellipsize="end"
+                    android:text="@string/profile" />
 
             </LinearLayout>
 

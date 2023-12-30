@@ -68,7 +68,7 @@
 
             <TextView
                 android:id="@+id/errorEmail"
-                style="@style/TextCaptionSMedium"
+                style="@style/TextCaptionMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -115,17 +115,16 @@
 
                 <ImageButton
                     android:id="@+id/btnTogglePassword"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
                     android:contentDescription="@string/img_desc"
-                    android:padding="4dp"
                     android:src="@drawable/ic_eye" />
 
             </LinearLayout>
 
             <TextView
                 android:id="@+id/errorPassword"
-                style="@style/TextCaptionSMedium"
+                style="@style/TextCaptionMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"

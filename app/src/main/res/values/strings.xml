@@ -13,4 +13,11 @@
     <string name="hint_password_confirm">Masukan ulang password anda</string>
     <string name="redirect_login">Ke Halaman Login</string>
     <string name="redirect_sign_up">Belum Punya Akun? Daftar Sekarang</string>
+    <string name="home">Home</string>
+    <string name="history">Riwayat</string>
+    <string name="announcement">Pengumuman</string>
+    <string name="notification">Notifikasi</string>
+    <string name="profile">Profil</string>
+    <string name="see_all_promo">Lihat Semua Promo</string>
+    <string name="transaction_histories">Riwayat Transaksi</string>
 </resources>

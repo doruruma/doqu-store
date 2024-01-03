@@ -4,6 +4,7 @@
 
     <data>
         <import type="android.view.View" />
+        <import type="id.andra.doqu_store.presentation.ui.activity.main.MainBindingAdapter" />
         <variable
             name="viewModel"
             type="id.andra.doqu_store.presentation.ui.activity.main.MainViewModel" />
@@ -19,6 +20,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/border_bottom"
             android:paddingHorizontal="24dp"
+            android:visibility="@{viewModel.state.showNavigationBar ? View.VISIBLE : View.GONE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -62,8 +64,8 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:paddingHorizontal="24dp"
-            android:paddingVertical="16dp"
+            app:paddingHorizontal="@{viewModel.state.showNavigationBar ? @dimen/x3 : 0}"
+            app:paddingVertical="@{viewModel.state.showNavigationBar ? @dimen/x2 : 0}"
             app:defaultNavHost="true"
             app:layout_constraintBottom_toTopOf="@id/bottombar"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -79,7 +81,7 @@
             android:baselineAligned="false"
             android:orientation="horizontal"
             android:paddingTop="1dp"
-            android:visibility="@{viewModel.state.showBottomBar ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.state.showNavigationBar ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -89,7 +91,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/ripple"
+                android:background="@{viewModel.state.homeActive ? @drawable/ripple_neutral_30 : @drawable/ripple}"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
@@ -108,7 +110,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
-                    android:text="@string/home" />
+                    android:text="@string/home"
+                    android:textColor="@{viewModel.state.homeActive ? @color/primary_main : @color/neutral_90}" />
 
             </LinearLayout>
 
@@ -117,7 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/ripple"
+                android:background="@{viewModel.state.announcementActive ? @drawable/ripple_neutral_30 : @drawable/ripple}"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
@@ -136,7 +139,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
-                    android:text="@string/announcement" />
+                    android:text="@string/announcement"
+                    android:textColor="@{viewModel.state.announcementActive ? @color/primary_main : @color/neutral_90}" />
 
             </LinearLayout>
 
@@ -145,7 +149,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/ripple"
+                android:background="@{viewModel.state.historyActive ? @drawable/ripple_neutral_30 : @drawable/ripple}"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
@@ -164,7 +168,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
-                    android:text="@string/history" />
+                    android:text="@string/history"
+                    android:textColor="@{viewModel.state.historyActive ? @color/primary_main : @color/neutral_90}" />
 
             </LinearLayout>
 
@@ -173,7 +178,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/ripple"
+                android:background="@{viewModel.state.notificationActive ? @drawable/ripple_neutral_30 : @drawable/ripple}"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
@@ -192,7 +197,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
-                    android:text="@string/notification" />
+                    android:text="@string/notification"
+                    android:textColor="@{viewModel.state.notificationActive ? @color/primary_main : @color/neutral_90}" />
 
             </LinearLayout>
 
@@ -201,7 +207,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/ripple"
+                android:background="@{viewModel.state.profileActive ? @drawable/ripple_neutral_30 : @drawable/ripple}"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"

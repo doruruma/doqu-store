@@ -1,5 +1,11 @@
 package id.andra.doqu_store.presentation.ui.activity.main
 
+import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -18,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
     private lateinit var state: StateFlow<MainState>
+    private var navBroadcastReceiver: BroadcastReceiver? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,23 +34,74 @@ class MainActivity : AppCompatActivity() {
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()
+        initNavController()
+        setEventListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initBroadcastReceiver()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterBroadcastReceiver()
+    }
+
+    private fun initBroadcastReceiver() {
+        if (navBroadcastReceiver == null) {
+            navBroadcastReceiver = object : BroadcastReceiver() {
+                override fun onReceive(context: Context?, intent: Intent?) {
+                    if (intent != null)
+                        navigate(intent.getIntExtra("navId", 0))
+                }
+            }
+            registerBroadcastReceiver(navBroadcastReceiver as BroadcastReceiver)
+        }
+    }
+
+    private fun unregisterBroadcastReceiver() {
+        if (navBroadcastReceiver != null)
+            unregisterReceiver(navBroadcastReceiver)
+        navBroadcastReceiver = null
+    }
+
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
+    private fun registerBroadcastReceiver(
+        broadcastReceiver: BroadcastReceiver,
+    ) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+            registerReceiver(
+                broadcastReceiver,
+                IntentFilter(Var.NAV_INTENT_FILTER),
+                RECEIVER_NOT_EXPORTED
+            )
+        else
+            registerReceiver(
+                broadcastReceiver,
+                IntentFilter(Var.NAV_INTENT_FILTER)
+            )
+    }
+
+    private fun navigate(id: Int) {
+        if (navController.currentDestination?.id != id) {
+            viewModel.onEvent(MainEvent.OnNavIdChanged(id))
+            navController.navigate(
+                resId = id, args = null, navOptions = Var.NAV_OPTIONS
+            )
+        }
+    }
+
+    private fun initNavController() {
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { _, destination, _ ->
             viewModel.onEvent(MainEvent.OnNavigationChanged(destination.id))
         }
-        setEventListener()
     }
 
-    private fun navigate(id: Int) {
-        if (navController.currentDestination?.id != id)
-            navController.navigate(
-                resId = id, args = null, navOptions = Var.NAV_OPTIONS
-            )
-    }
-
-    private fun setEventListener() {
+    private fun setEventListeners() {
         binding.btnHome.setOnClickListener {
             navigate(R.id.homeFragment)
         }
@@ -55,6 +113,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnNotification.setOnClickListener {
             navigate(R.id.notificationFragment)
+        }
+        binding.btnProfile.setOnClickListener {
+            navigate(R.id.profileFragment)
         }
     }
 

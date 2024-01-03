@@ -20,4 +20,12 @@
         android:id="@+id/notificationFragment"
         android:name="id.andra.doqu_store.presentation.ui.fragment.notification.NotificationFragment" />
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="id.andra.doqu_store.presentation.ui.fragment.profile.ProfileFragment" />
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="id.andra.doqu_store.presentation.ui.fragment.editProfile.EditProfileFragment" />
+
 </navigation>

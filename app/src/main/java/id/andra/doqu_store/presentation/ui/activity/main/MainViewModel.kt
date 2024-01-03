@@ -19,15 +19,29 @@ class MainViewModel : ViewModel() {
     )
 
     private fun handleOnNavigationChanged(id: Int) {
-        val isShowBottomBar = when (id) {
+        val isShowNavigationBar = when (id) {
             R.id.notificationFragment -> true
             R.id.homeFragment -> true
             R.id.historyFragment -> true
             R.id.announcementFragment -> true
+            R.id.profileFragment -> true
             else -> false
         }
         _state.update { state ->
-            state.copy(isShowBottomBar = isShowBottomBar)
+            state.copy(isShowNavigationBar = isShowNavigationBar)
+        }
+    }
+
+    private fun handleOnNavIdChanged(id: Int) {
+        _state.update { state ->
+            state.copy(
+                currentNavId = id,
+                isHomeActive = id == R.id.homeFragment,
+                isHistoryActive = id == R.id.historyFragment,
+                isNotificationActive = id == R.id.notificationFragment,
+                isAnnouncementActive = id == R.id.announcementFragment,
+                isProfileActive = id == R.id.profileFragment
+            )
         }
     }
 
@@ -36,15 +50,26 @@ class MainViewModel : ViewModel() {
             is MainEvent.OnNavigationChanged -> {
                 handleOnNavigationChanged(event.id)
             }
+
+            is MainEvent.OnNavIdChanged -> {
+                handleOnNavIdChanged(event.id)
+            }
         }
     }
 
 }
 
 data class MainState(
-    val isShowBottomBar: Boolean = true
+    val isShowNavigationBar: Boolean = true,
+    val currentNavId: Int = 0,
+    val isHomeActive: Boolean = true,
+    val isAnnouncementActive: Boolean = false,
+    val isHistoryActive: Boolean = false,
+    val isNotificationActive: Boolean = false,
+    val isProfileActive: Boolean = false
 )
 
 sealed class MainEvent {
     data class OnNavigationChanged(val id: Int) : MainEvent()
+    data class OnNavIdChanged(val id: Int) : MainEvent()
 }

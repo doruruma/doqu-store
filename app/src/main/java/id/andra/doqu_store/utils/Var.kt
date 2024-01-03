@@ -3,6 +3,7 @@ package id.andra.doqu_store.utils
 import androidx.navigation.navOptions
 
 object Var {
+    const val NAV_INTENT_FILTER = "NAV_BROADCAST"
     const val SUBSCRIBED_FLOW: Long = 5000L
     val NAV_OPTIONS = navOptions {
         anim {

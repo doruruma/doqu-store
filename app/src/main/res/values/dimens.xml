@@ -2,6 +2,9 @@
 <resources>
     <dimen name="bottombarSize">75dp</dimen>
     <dimen name="carouselSize">100dp</dimen>
+    <dimen name="half">4dp</dimen>
+    <dimen name="x1">8dp</dimen>
+    <dimen name="x1Half">12dp</dimen>
     <dimen name="x2">16dp</dimen>
     <dimen name="x3">24dp</dimen>
 </resources>

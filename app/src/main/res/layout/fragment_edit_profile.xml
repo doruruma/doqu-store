@@ -17,21 +17,106 @@
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/border_bottom"
-            android:paddingHorizontal="24dp"
+            android:paddingHorizontal="@dimen/x3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/ripple"
+                android:contentDescription="@string/img_desc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_arrow_left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 style="@style/TextBody1Bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edit Profile"
+                android:layout_marginStart="@dimen/x1"
+                android:text="@string/edit_profile"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnBack"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/body"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingHorizontal="@dimen/x3"
+            android:paddingVertical="@dimen/x2"
+            app:layout_constraintBottom_toTopOf="@id/bottombar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/navbar">
+
+            <LinearLayout
+                android:id="@+id/layoutUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x2"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    style="@style/TextCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_username" />
+
+                <EditText
+                    android:id="@+id/inputUsername"
+                    style="@style/Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x1"
+                    android:autofillHints="emailAddress"
+                    android:hint="@string/hint_username"
+                    android:inputType="text" />
+
+                <TextView
+                    android:id="@+id/errorUsername"
+                    style="@style/TextCaptionMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/danger_main"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/bottombar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottombarSize"
+            android:background="@drawable/border_top"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/x3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/body">
+
+            <Button
+                android:id="@+id/btnSubmit"
+                style="@style/ButtonL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_primary"
+                android:text="@string/save_changes" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

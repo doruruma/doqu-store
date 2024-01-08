@@ -1,4 +1,4 @@
-package id.andra.doqu_store.presentation.ui.fragment.profile
+package id.andra.doqu_store.presentation.ui.fragment.shoppingCart
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import id.andra.doqu_store.R
-import id.andra.doqu_store.databinding.FragmentProfileBinding
+import id.andra.doqu_store.databinding.FragmentShoppingCartBinding
 import id.andra.doqu_store.presentation.ui.activity.main.MainActivity
 
-class ProfileFragment : Fragment() {
+class ShoppingCartFragment : Fragment() {
 
-    private lateinit var binding: FragmentProfileBinding
-    private lateinit var viewModel: ProfileViewModel
+    private lateinit var binding: FragmentShoppingCartBinding
+    private lateinit var viewModel: ShoppingCartViewModel
     private lateinit var act: MainActivity
 
     override fun onCreateView(
@@ -23,8 +23,9 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
-        viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        viewModel = ViewModelProvider(this)[ShoppingCartViewModel::class.java]
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_shopping_cart, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()
@@ -34,11 +35,8 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setEventListeners() {
-        binding.btnEditProfile.setOnClickListener {
-            act.navigate(R.id.editProfileFragment)
-        }
-        binding.btnEditPassword.setOnClickListener {
-            act.navigate(R.id.editPasswordFragment)
+        binding.btnBack.setOnClickListener {
+            act.navigateUp()
         }
     }
 

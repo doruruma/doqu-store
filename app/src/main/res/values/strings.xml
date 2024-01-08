@@ -9,6 +9,8 @@
     <string name="hint_username">Masukan username anda</string>
     <string name="label_password">Password</string>
     <string name="hint_password">Masukan password anda</string>
+    <string name="label_new_password">Password Baru</string>
+    <string name="hint_new_password">Masukan password baru anda</string>
     <string name="label_password_confirm">Konfirmasi Password</string>
     <string name="hint_password_confirm">Masukan ulang password anda</string>
     <string name="redirect_login">Ke Halaman Login</string>
@@ -18,6 +20,10 @@
     <string name="announcement">Pengumuman</string>
     <string name="notification">Notifikasi</string>
     <string name="profile">Profil</string>
+    <string name="edit_profile">Edit Profil</string>
+    <string name="edit_password">Edit Password</string>
     <string name="see_all_promo">Lihat Semua Promo</string>
     <string name="transaction_histories">Riwayat Transaksi</string>
+    <string name="save_changes">Simpan Perubahan</string>
+    <string name="cart">Keranjang Belanja</string>
 </resources>

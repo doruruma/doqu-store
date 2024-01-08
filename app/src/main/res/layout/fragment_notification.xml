@@ -10,7 +10,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingHorizontal="@dimen/x3"
+        android:paddingVertical="@dimen/x2">
 
         <TextView
             style="@style/TextBody1Bold"

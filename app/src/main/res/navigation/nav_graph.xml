@@ -28,4 +28,12 @@
         android:id="@+id/editProfileFragment"
         android:name="id.andra.doqu_store.presentation.ui.fragment.editProfile.EditProfileFragment" />
 
+    <fragment
+        android:id="@+id/editPasswordFragment"
+        android:name="id.andra.doqu_store.presentation.ui.fragment.editPassword.EditPasswordFragment" />
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="id.andra.doqu_store.presentation.ui.fragment.shoppingCart.ShoppingCartFragment" />
+
 </navigation>

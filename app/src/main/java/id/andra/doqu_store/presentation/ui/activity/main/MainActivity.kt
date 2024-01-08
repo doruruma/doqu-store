@@ -83,13 +83,16 @@ class MainActivity : AppCompatActivity() {
             )
     }
 
-    private fun navigate(id: Int) {
+    fun navigate(id: Int) {
         if (navController.currentDestination?.id != id) {
-            viewModel.onEvent(MainEvent.OnNavIdChanged(id))
             navController.navigate(
                 resId = id, args = null, navOptions = Var.NAV_OPTIONS
             )
         }
+    }
+
+    fun navigateUp() {
+        navController.navigateUp()
     }
 
     private fun initNavController() {
@@ -98,10 +101,14 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         navController.addOnDestinationChangedListener { _, destination, _ ->
             viewModel.onEvent(MainEvent.OnNavigationChanged(destination.id))
+            viewModel.onEvent(MainEvent.OnNavIdChanged(destination.id))
         }
     }
 
     private fun setEventListeners() {
+        binding.btnCart.setOnClickListener {
+            navigate(R.id.cartFragment)
+        }
         binding.btnHome.setOnClickListener {
             navigate(R.id.homeFragment)
         }

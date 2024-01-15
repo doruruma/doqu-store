@@ -1,11 +1,5 @@
 package id.andra.doqu_store.presentation.ui.activity.main
 
-import android.annotation.SuppressLint
-import android.content.BroadcastReceiver
-import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -24,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
     private lateinit var state: StateFlow<MainState>
-    private var navBroadcastReceiver: BroadcastReceiver? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,51 +29,6 @@ class MainActivity : AppCompatActivity() {
         binding.executePendingBindings()
         initNavController()
         setEventListeners()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        initBroadcastReceiver()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        unregisterBroadcastReceiver()
-    }
-
-    private fun initBroadcastReceiver() {
-        if (navBroadcastReceiver == null) {
-            navBroadcastReceiver = object : BroadcastReceiver() {
-                override fun onReceive(context: Context?, intent: Intent?) {
-                    if (intent != null)
-                        navigate(intent.getIntExtra("navId", 0))
-                }
-            }
-            registerBroadcastReceiver(navBroadcastReceiver as BroadcastReceiver)
-        }
-    }
-
-    private fun unregisterBroadcastReceiver() {
-        if (navBroadcastReceiver != null)
-            unregisterReceiver(navBroadcastReceiver)
-        navBroadcastReceiver = null
-    }
-
-    @SuppressLint("UnspecifiedRegisterReceiverFlag")
-    private fun registerBroadcastReceiver(
-        broadcastReceiver: BroadcastReceiver,
-    ) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-            registerReceiver(
-                broadcastReceiver,
-                IntentFilter(Var.NAV_INTENT_FILTER),
-                RECEIVER_NOT_EXPORTED
-            )
-        else
-            registerReceiver(
-                broadcastReceiver,
-                IntentFilter(Var.NAV_INTENT_FILTER)
-            )
     }
 
     fun navigate(id: Int) {

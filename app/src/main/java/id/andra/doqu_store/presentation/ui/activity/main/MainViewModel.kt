@@ -4,10 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import id.andra.doqu_store.R
 import id.andra.doqu_store.utils.Var
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
@@ -18,7 +20,8 @@ class MainViewModel : ViewModel() {
         MainState()
     )
 
-    private fun handleOnNavigationChanged(id: Int) {
+    private fun handleOnNavigationChanged(id: Int) = viewModelScope.launch {
+        // delay(300)
         val isShowNavigationBar = when (id) {
             R.id.notificationFragment -> true
             R.id.homeFragment -> true

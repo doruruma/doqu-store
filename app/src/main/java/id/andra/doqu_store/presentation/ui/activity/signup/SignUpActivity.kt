@@ -25,6 +25,12 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun setEventListeners() {
+        binding.btnTogglePassword.setOnClickListener {
+            viewModel.onEvent(SignUpEvent.OnTogglePassword)
+        }
+        binding.btnTogglePasswordConfirm.setOnClickListener {
+            viewModel.onEvent(SignUpEvent.OnTogglePasswordConfirm)
+        }
         binding.textRedirectLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finish()

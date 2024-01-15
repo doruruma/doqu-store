@@ -3,6 +3,7 @@ package id.andra.doqu_store.presentation.ui.activity.login
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import id.andra.doqu_store.R
@@ -26,6 +27,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setEventListeners() {
+        binding.inputEmail.addTextChangedListener {
+            viewModel.onEvent(LoginEvent.OnEmailChanged(it.toString()))
+        }
+        binding.inputPassword.addTextChangedListener {
+            viewModel.onEvent(LoginEvent.OnPasswordChanged(it.toString()))
+        }
+        binding.btnTogglePassword.setOnClickListener {
+            viewModel.onEvent(LoginEvent.OnTogglePassword)
+        }
         binding.textRedirectSignUp.setOnClickListener {
             startActivity(Intent(this, SignUpActivity::class.java))
         }

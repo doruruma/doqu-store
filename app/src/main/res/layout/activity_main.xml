@@ -224,7 +224,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:ellipsize="end"
-                    android:text="@string/profile" />
+                    android:text="@string/profile"
+                    android:textColor="@{viewModel.state.profileActive ? @color/primary_main : @color/neutral_90}"/>
 
             </LinearLayout>
 

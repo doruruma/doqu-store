@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="id.andra.doqu_store.presentation.bindingAdapter.CommonBindingAdapter" />
         <variable
             name="viewModel"
             type="id.andra.doqu_store.presentation.ui.activity.signup.SignUpViewModel" />
@@ -149,6 +150,7 @@
                     android:autofillHints="password"
                     android:background="@android:color/transparent"
                     android:hint="@string/hint_password"
+                    passwordVisibility="@{viewModel.state.showPassword}"
                     android:inputType="textPassword" />
 
                 <ImageButton
@@ -156,7 +158,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:contentDescription="@string/img_desc"
-                    android:src="@drawable/ic_eye" />
+                    togglePasswordSrc="@{viewModel.state.showPassword}"/>
 
             </LinearLayout>
 
@@ -198,6 +200,7 @@
                 <EditText
                     android:id="@+id/inputPasswordConfirm"
                     style="@style/TextBody2"
+                    passwordVisibility="@{viewModel.state.showPasswordConfirm}"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="@dimen/x1"
@@ -212,7 +215,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:contentDescription="@string/img_desc"
-                    android:src="@drawable/ic_eye" />
+                    togglePasswordSrc="@{viewModel.state.showPasswordConfirm}"/>
 
             </LinearLayout>
 

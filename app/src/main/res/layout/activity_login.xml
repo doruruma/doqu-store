@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="id.andra.doqu_store.presentation.bindingAdapter.CommonBindingAdapter" />
         <variable
             name="viewModel"
             type="id.andra.doqu_store.presentation.ui.activity.login.LoginViewModel" />
@@ -63,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x1"
                 android:autofillHints="emailAddress"
+                android:text="@{viewModel.state.email}"
                 android:hint="@string/hint_email"
                 android:inputType="textEmailAddress" />
 
@@ -104,9 +106,11 @@
                 <EditText
                     android:id="@+id/inputPassword"
                     style="@style/TextBody2"
+                    passwordVisibility="@{viewModel.state.showPassword}"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="@dimen/x1"
+                    android:text="@{viewModel.state.password}"
                     android:layout_weight="1"
                     android:autofillHints="password"
                     android:background="@android:color/transparent"
@@ -115,10 +119,10 @@
 
                 <ImageButton
                     android:id="@+id/btnTogglePassword"
+                    togglePasswordSrc="@{viewModel.state.showPassword}"
                     android:layout_width="16dp"
                     android:layout_height="16dp"
-                    android:contentDescription="@string/img_desc"
-                    android:src="@drawable/ic_eye" />
+                    android:contentDescription="@string/img_desc" />
 
             </LinearLayout>
 

@@ -46,6 +46,58 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutEmpty"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingHorizontal="@dimen/x3"
+            android:paddingVertical="@dimen/x2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/navbar">
+
+            <TextView
+                android:id="@+id/txtEmptyTitle"
+                style="@style/TextBody1Bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wah, Keranjang Kamu Kosong"
+                app:layout_constraintBottom_toTopOf="@id/txtEmptyMessage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/txtEmptyMessage"
+                style="@style/TextBody2Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x1"
+                android:text="Mau beli apa hari ini? Masukin keranjang aja dulu daripada nanti lupa"
+                android:textAlignment="center"
+                android:textColor="@color/neutral_70"
+                app:layout_constraintBottom_toTopOf="@id/btnShopping"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtEmptyTitle" />
+
+            <Button
+                android:id="@+id/btnShopping"
+                style="@style/ButtonL"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x1Half"
+                android:background="@drawable/btn_primary"
+                android:text="Mulai Belanja"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtEmptyMessage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
